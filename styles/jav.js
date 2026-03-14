@@ -43,30 +43,26 @@ document.querySelectorAll('[data-bs-toggle="popover"]').forEach(el => {
 })
 
 document.addEventListener('click', function (e) {
-    if (CurrentD == '' || CurrentT == '') {
-        console.log("Invalid Input")
-    } else {
-        if (!e.target || !e.target.classList) return
-        if (e.target.classList.contains('JSeditB')) { // Sets the edit button card
-            const target = e.target.closest('.box1') // Targets the card to change things
+    if (!e.target || !e.target.classList) return
+    if (e.target.classList.contains('JSeditB')) { // Sets the edit button card
+        const target = e.target.closest('.box1') // Targets the card to change things
 
-            let CurrentT = target.querySelector('h2').innerHTML // Read text inside h2, which is the title of card
-            let CurrentD = target.querySelector('p').innerHTML // Reads current description
-            console.log(CurrentD, CurrentT)
+        let CurrentT = target.querySelector('h2').innerHTML // Read text inside h2, which is the title of card
+        let CurrentD = target.querySelector('p').innerHTML // Reads current description
+        console.log(CurrentD, CurrentT)
 
-            htmlchange('cardTitleInptC').value = CurrentT
-            htmlchange('cardDesInptC').value = CurrentD
+        htmlchange('cardTitleInptC').value = CurrentT
+        htmlchange('cardDesInptC').value = CurrentD
 
-            htmlchange('contentC').replaceWith(htmlchange('contentC').cloneNode(true))
+        htmlchange('contentC').replaceWith(htmlchange('contentC').cloneNode(true))
 
-            htmlchange('contentC').addEventListener('click', function () {
-                const NewT = htmlchange('cardTitleInptC').value
-                const NewD = htmlchange('cardDesInptC').value
+        htmlchange('contentC').addEventListener('click', function () {
+            const NewT = htmlchange('cardTitleInptC').value
+            const NewD = htmlchange('cardDesInptC').value
 
-                target.querySelector('h2').innerHTML = NewT
-                target.querySelector('p').innerHTML = NewD
-            })
-        }
+            target.querySelector('h2').innerHTML = NewT
+            target.querySelector('p').innerHTML = NewD
+        })
     }
 })
 

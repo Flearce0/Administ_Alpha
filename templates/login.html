@@ -55,7 +55,21 @@
             </ul>
         </div>
     </nav>
-    <a href="/dashboard">Go to dashboard</a>
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="row align-middle loginbox">
+            <img style="width: 20%; height: auto;" src="/images/AdminLogo.png" alt="AdminLogo.png">
+            <form action="" id="login">
+                <label for="username">Username:</label><br>
+                <input name="username" type="text"><br>
+                <label for="pass">Password:</label><br>
+                <input name="pass" type="text"><br>
+            </form>
+            <div class="row">
+                <button class="btn btn-primary w-25" form="login" id="">Login</button>
+                <a style="font-size: 20px;" href="/dashboard">Go to dashboard</a>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -44,13 +44,9 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
-            </ul>
-            <ul class="ms-auto mt-2" style="list-style: none;">
-                <li class="nav-item me-3">
-                    <label class="switch">
-                        <input id="themes" type="checkbox">
-                        <span class="slider"></span>
-                    </label>
+                <li class="nav-item">
+                    <a class="btn btn-light nav-link" data-bs-toggle="modal" data-bs-target="#settingsBackdrop"><img
+                            class="me-1 gearIcon" src="/images/gear.svg" alt="gear.svg">Settings</a>
                 </li>
             </ul>
         </div>
@@ -64,7 +60,7 @@
                         <h1>Current Tasks:</h1>
                         <div class="container mb-2 scrollbox w-auto">
                             <div id="cardA" class="row flex-nowrap gap8">
-                                <div class="col-auto box1 bgT1">
+                                <div class="col-auto box1 bgT2">
                                     <div class="dropdown" style="position: relative;">
                                         <a class="dropdown-toggle kebabB d-flex justify-content-end mt-1 mb-1 cardBA"
                                             href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown"
@@ -118,45 +114,53 @@
                     <div class="row">
                         <div class="col-md-6 box1 boxD">
                             <h2>Reminders:</h2>
-                            <div class="box1 boxD"
+                            <div class="box1 boxD2"
                                 style="border-left: solid 5px rgb(136, 204, 255); background-color: rgb(245, 245, 245);">
-                                <h2 class="pt-1">Reminder1</h2>
+                                <h2 class="pt-1">Reminder 1</h2>
+                                <p class="pb-2">Description</p>
+                            </div>
+                            <div class="box1 boxD2"
+                                style="border-left: solid 5px rgb(136, 255, 150); background-color: rgb(245, 245, 245);">
+                                <h2 class="pt-1">Reminder 2</h2>
                                 <p class="pb-2">Description</p>
                             </div>
                         </div>
                         <div class="col-md-6 box1 boxD">
                             <h2>Current Routine Block:</h2>
-                            <div class="box1 boxD">
-                                <h3>Work Block 3</h3><br>
-                                <p>Template text</p>
-                            </div>
+                            <ul class="list-group boxD2 mb-3">
+                                <li class="list-group-item">
+                                    <p>Work Block 2 - 13:20 ~ 14:40</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h3>Work Block 3</h3>
+                                                <p>14:40 ~ 15:40</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="/images/AdminLogo.png" alt="AdminLogo.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <p>Work Block 4 - 15:40 ~ 16:40</p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 div1 w-25 box1 boxD">
                 <h1>Rank Today:</h1><br>
-                <div class="box1 bgN text-center">
-                    <h2>A</h2>
+                <div id="JSplate" class="rankPlate plate text-center"></div>
+                <div class="line mt-3 mb-3"></div>
+                <div class="container">
+                    <h1>Today's Todo:</h1>
+                    <div id="TDcontainer" class="row box1 boxD2 d-flex justify-content-center">
+                    </div>
                 </div>
-                <h1>Today's Todo:</h1>
-                <ul>
-                    <li>Task 1</li>
-                    <li>Task 2</li>
-                </ul>
-                <form action="">
-                    <input type="checkbox" id="res1" name="res1" value="res1">
-                    <label for="res1">Task 1</label><br><br>
-                    <input type="checkbox" id="res1" name="res1" value="res1">
-                    <label for="res1">Task 1</label><br><br>
-                    <input type="checkbox" id="res1" name="res1" value="res1">
-                    <label for="res1">Task 1</label><br><br>
-                    <input type="checkbox" id="res1" name="res1" value="res1">
-                    <label for="res1">Task 1</label><br><br>
-                    <input type="checkbox" id="res1" name="res1" value="res1">
-                    <label for="res1">Task 1</label><br><br>
-                    <input type="submit" value="Submit">
-                </form>
             </div>
         </div>
     </div>
@@ -232,8 +236,8 @@
                                 <option value="Next Week">Next Week</option>
                                 <option value="This Month">This Month</option>
                                 <option value="This Year">This Year</option>
-                            </select>
-                            <label for="cardPriorInptC">Priority Level</label><br>
+                            </select><br>
+                            <label for="cardPriorInptC">Priority Level:</label><br>
                             <select id="cardPriorInptC">
                                 <option value="1">⭐️</option>
                                 <option value="2">⭐️⭐️</option>
@@ -265,6 +269,34 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settingsBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="settingsBackdropLabel">Settings</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="ms-auto mt-2" style="list-style: none;">
+                        <li class="nav-item me-3">
+                            <p>Light/Dark Mode Toggle:</p>
+                            <label class="switch">
+                                <input id="themes" type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
                 </div>
             </div>
         </div>

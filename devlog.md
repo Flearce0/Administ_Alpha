@@ -3,10 +3,10 @@
 
 - =====// Details //=====
 - Type of site: Self-Managment, Administration
-- Technology Stack: HTML5, CSS, BOOTSTRAP, JS, NODE.JS, EXPRESS.JS, SQLITE
+- Technology Stack: HTML5, CSS, BOOTSTRAP, JS, NODE.JS, EXPRESS.JS, SQLITE, JSON, GIT
 - Current Version: 2.0
 
-- =====/ Alpha 1 /=====
+- =====/ Alpha 1 /=====|
 - Added Light and Dark mode
 - Dashboard and Top message sync with time
 - Cards/Tasks Can be created, edited and deleted
@@ -21,11 +21,18 @@
 - Added login page
 - Added Settings
 - Added LocalStorage for Storing data and prefences
-- =======================
+- ======================|
 
-- ======/ Beta 2 /======
+- ======/ Beta 2 /======|
 - Removed LocalStorage for card datas
 - Implemented SQLite database
 - Every Task is a real data now
 - Fixed Rank Refresh bug, it dosent reset after refresh now
-- ======================
+- ==========
+- ==/ Beta 2.1 /==
+- Added Passkey, cookies and sessions
+- Added 2 more DB tables (Unused in this version)
+- UI improvments
+- Added css for front page, staging up for frontpage.html
+- ==========
+- ======================|

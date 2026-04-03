@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlCSS">
 
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Log out</a>
+                    <a class="nav-link" href="/logout">Log out</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/records">Record</a>
@@ -74,7 +74,7 @@
                                                 Edit
                                             </a>
                                             <a class="dropdown-item" href="#">Delete</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <a class="dropdown-item" href="#">Infos</a>
                                         </div>
                                     </div>
                                     <h2>Task 123</h2>
@@ -112,20 +112,32 @@
                         </button>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 box1 boxD">
+                        <div class="col-md-6 box1 boxD3">
                             <h2>Reminders:</h2>
-                            <div class="box1 boxD2"
-                                style="border-left: solid 5px rgb(136, 204, 255); background-color: rgb(245, 245, 245);">
-                                <h2 class="pt-1">Reminder 1</h2>
-                                <p class="pb-2">Description</p>
+                            <div class="box1 boxD2 mb-2 reminderL">
+                                <div class="row ms-1">
+                                    <h2 class="pt-1">AS 91868 Internal Assessment - Part A v2</h2>
+                                    <p class="pb-2">Description</p>
+                                    <div class="container">
+                                        <p>Due on: Monday, 23/03/2026</p>
+                                        <p>Remaining Time: 10D, 10H</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="box1 boxD2"
                                 style="border-left: solid 5px rgb(136, 255, 150); background-color: rgb(245, 245, 245);">
                                 <h2 class="pt-1">Reminder 2</h2>
                                 <p class="pb-2">Description</p>
                             </div>
+
+                            <div class="row justify-content-end mb-2 mt-2 me-1">
+                                <button type="button" class="btn btn-primary w-50" data-bs-toggle="modal"
+                                    data-bs-target="#remindersBackdrop">
+                                    Add Reminder
+                                </button>
+                            </div>
                         </div>
-                        <div class="col-md-6 box1 boxD">
+                        <div class="col-md-6 box1 boxD3">
                             <h2>Current Routine Block:</h2>
                             <ul class="list-group boxD2 mb-3">
                                 <li class="list-group-item">
@@ -153,7 +165,7 @@
                 </div>
             </div>
             <div class="col-md-6 div1 w-25 box1 boxD">
-                <h1>Rank Today:</h1><br>
+                <h1 class="mt-2">Rank Today:</h1><br>
                 <div id="JSplate" class="rankPlate plate text-center"></div>
                 <div class="line mt-3 mb-3"></div>
                 <div class="container">
@@ -297,6 +309,39 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reminders Modal -->
+    <div class="modal fade" id="remindersBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Create a reminder:</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="box1 boxD2 mb-2 reminderTemp">
+                        <div class="row ms-1">
+                            <form action="none" id="ReminderSubmitR">
+                                <input id="RemindTItle" type="text" placeholder="TItle:"><br>
+                                <input id="RemindDes" type="text" placeholder="Description:"><br>
+                                <h2 class="pt-1">AS 91868 Internal Assessment - Part A v2</h2>
+                                <p class="pb-2">Description</p>
+                                <div class="container">
+                                    <p>Due on: Monday, 23/03/2026</p>
+                                    <p>Remaining Time: 10D, 10H</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>

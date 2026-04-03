@@ -107,7 +107,7 @@ function rankfunc() {
     else if (dailyS >= 26 && dailyS < 30) {
         htmlchange('JSplate').innerHTML = '<h2 class="rankSS" style="font-size: 75px;">SS</h2>';
     }
-    else if (dailyS >= 31) {
+    else if (dailyS >= 30) {
         htmlchange('JSplate').innerHTML = '<h2 class="rankSSS" style="font-size: 75px;">SSS</h2>';
     } else {
         htmlchange('JSplate').innerHTML = '<h2 class="rankSSS" style="font-size: 75px;">ERROR</h2>';
@@ -237,12 +237,16 @@ document.addEventListener('click', function (e) { // EDIT FUNCTION
 function ThemeButton() {
     htmlchange("BackGnd").classList.toggle("darkM");
     htmlchange("navB").classList.toggle("navDark");
+    htmlchange("htmlCSS").classList.toggle("htmlD");
     document.querySelectorAll(".boxD").forEach(function (box) {
         box.classList.toggle("box2");
     });
     document.querySelectorAll('.boxD2').forEach(function (noti) {
         noti.classList.toggle('box3')
     })
+    document.querySelectorAll(".boxD3").forEach(function (remind) {
+        remind.classList.toggle("box4");
+    });
     document.querySelectorAll('.gearIcon').forEach(function (gearI) {
         gearI.classList.toggle('gearIconD');
     })
@@ -280,18 +284,17 @@ function ThemeButton() {
 }
 
 async function cardinput() {
-    const Ctitle = htmlchange('cardTitleInpt').value
-    const Cdes = htmlchange('cardDesInpt').value
-    const Cdue = htmlchange('cardDueInpt').value
-    const CPrior = htmlchange('cardPriorInpt').value
+    let Ctitle = htmlchange('cardTitleInpt').value
+    let Cdes = htmlchange('cardDesInpt').value
+    let Cdue = htmlchange('cardDueInpt').value
+    let CPrior = htmlchange('cardPriorInpt').value
 
     let Tlength = Ctitle.length
     let Dlength = Cdes.length
-    if (Ctitle === '' || Cdes === '') {
-        console.log("Invalid letters")
-    } else if (Tlength >= 50 || Dlength >= 100) {
-        console.log("Text too long")
-    } else {
+    if (Ctitle === '') Ctitle = '--'
+    if (Cdes === '') Cdes = '--'
+    if (Tlength >= 50 || Dlength >= 100) console.log("Text too long")
+    else {
         console.log('Request Sent Succesfully')
         CardsADD(Ctitle, Cdes, Cdue, CPrior) // ⬇️
     }
@@ -321,7 +324,7 @@ async function CardsADD(Ctitle, Cdes, Cdue, CPrior, fromInit = false, Cid = null
                     Edit
                 </a>
                 <a class="dropdown-item JSdeleteB" href="#">Delete</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Infos</a>
             </div>
         </div>
         <h2 class="me-3">${Ctitle}</h2>
@@ -336,8 +339,8 @@ async function CardsADD(Ctitle, Cdes, Cdue, CPrior, fromInit = false, Cid = null
         </div>
         <a data-bs-toggle="modal" data-bs-target="#Progressbarmodal">
             <div class="progress" role="progressbar" aria-label="Example with label"
-                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar" style="width: 25%">25%</div>
+                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 50%">50%</div>
             </div>
         </a>
         <div class="row justify-content-center">
@@ -373,6 +376,48 @@ async function CardsADD(Ctitle, Cdes, Cdue, CPrior, fromInit = false, Cid = null
     console.log('Task Saved to DB')
     htmlchange('cardA').append(card);
     tasksSYNC()
+}
+
+async function RemindersADD(fromInit = false, Rid = null) {
+    const reminder = document.createElement('div')
+    const dataid = Rid || Number(Date.now()) + 1
+    reminder.classList.add('box1', 'boxD2', 'mb-2', 'reminderTemp')
+    reminder.dataset.id = dataid
+    reminder.dataset.id
+    console.log(`Current Reminder ID: ${reminder.dataset.id}`)
+
+    reminder.innerHTML = `
+            <div class="row ms-1">
+                <h2 class="pt-1">AS 91868 Internal Assessment - Part A v2</h2>
+                <p class="pb-2">Description</p>
+                <div class="container">
+                    <p>Due on: Monday, 23/03/2026</p>
+                    <p>Remaining Time: 10D, 10H</p>
+                </div>
+            </div>
+    `
+
+    if (!fromInit) {
+        await fetch('/saveRemind', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                title: null,
+                des: null,
+                duetime: null,
+                remindid: dataid
+            })
+        })
+    }
+
+    Rdata.push({
+        Rtitle: null,
+        des: null,
+        duetime: null,
+        remindid: dataid
+    })
+    console.log('Reminder Saved to DB')
+    htmlchange('').append(reminder)
 }
 
 function tasksSYNC() {

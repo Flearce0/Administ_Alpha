@@ -21,6 +21,8 @@
   "homepage": "https://github.com/Flearce0/Administ_Alpha#readme",
   "dependencies": {
     "better-sqlite3": "^12.8.0",
-    "express": "^5.2.1"
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0"
   }
 }

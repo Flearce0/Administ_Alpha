@@ -1,5 +1,14 @@
+html {
+    background-color: rgb(237, 237, 237);
+}
+
+.htmlD {
+    background-color: #272727;
+}
+
 body {
     background-color: rgb(237, 237, 237);
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
 }
 
 .box1 {
@@ -9,7 +18,20 @@ body {
 }
 
 .box2 {
-    background-color: #353535 !important;
+    background-color: #3535357a !important;
+    border-radius: 5px !important;
+    box-shadow: rgba(0, 0, 0, 0.048) 0px 0px 5px 1px;
+}
+
+.box3 {
+    border: solid 1px rgba(60, 60, 60, 0.843);
+    background-color: #222222 !important;
+    box-shadow: rgba(0, 0, 0, 0.048) 0px 0px 5px 1px;
+}
+
+.box4 {
+    border: solid #2727277a 2px;
+    background-color: #3535357a !important;
     border-radius: 5px !important;
     box-shadow: rgba(0, 0, 0, 0.048) 0px 0px 5px 1px;
 }
@@ -24,11 +46,6 @@ body {
 .borderD {
     border-left: solid 5px rgb(80, 80, 80);
     background-color: #222222
-}
-
-.box3 {
-    background-color: #2d2d2d !important;
-    box-shadow: rgba(0, 0, 0, 0.048) 0px 0px 5px 1px;
 }
 
 .loginbox {
@@ -165,6 +182,16 @@ tr:nth-child(even) {
     cursor: pointer;
     transform: scale(1.2);
     transition: transform 0.2s ease;
+}
+
+.reminderL {
+    border-left: solid 5px rgb(255, 98, 0) !important;
+    background-color: rgb(245, 245, 245);
+}
+
+.reminderTemp {
+    border-left: solid 5px rgb(136, 204, 255) !important;
+    background-color: rgb(245, 245, 245);
 }
 
 
@@ -313,7 +340,8 @@ tr:nth-child(even) {
 }
 
 .darkM {
-    background-color: #272727;
+    background: #272727;
+    background: linear-gradient(124deg,rgba(39, 39, 39, 1) 0%, rgb(30, 33, 54) 100%);
     color: white;
 }
 

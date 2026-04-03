@@ -19,7 +19,7 @@
     <nav id="navB" class="navbar navbar-expand-lg navbar-light bg-light">
         <a href="/dashboard"><img class="ms-2" src="/images/AdminLogo.png" alt="AdministLogo"
                 style="width: 50px; height: auto;"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,14 +27,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Log out</a>
+                    <a class="nav-link" href="/">Log out</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Record</a>
+                    <a class="nav-link" href="/records">Record</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -44,28 +44,24 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
-            </ul>
-            <ul class="ms-auto mt-2" style="list-style: none;">
-                <li class="nav-item me-3">
-                    <label class="switch">
-                        <input id="themes" type="checkbox">
-                        <span class="slider"></span>
-                    </label>
+                <li class="nav-item">
+                    <a class="btn btn-light nav-link" data-bs-toggle="modal" data-bs-target="#settingsBackdrop"><img
+                            class="me-1 gearIcon" src="/images/gear.svg" alt="gear.svg">Settings</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="container d-flex justify-content-center mt-5">
-        <div class="row align-middle loginbox">
+    <div class="container mt-5">
+        <div class="row align-middle loginbox d-flex justify-content-center">
             <img style="width: 20%; height: auto;" src="/images/AdminLogo.png" alt="AdminLogo.png">
-            <form action="" id="login">
+            <form class="" action="/verify" method="POST" id="login">
                 <label for="username">Username:</label><br>
                 <input name="username" type="text"><br>
-                <label for="pass">Password:</label><br>
-                <input name="pass" type="text"><br>
+                <label for="passkey">Passkey:</label><br>
+                <input name="passkey" type="text"><br>
             </form>
             <div class="row">
-                <button class="btn btn-primary w-25" form="login" id="">Login</button>
+                <button class="btn btn-primary w-25" form="login" type="submit">Login</button>
                 <a style="font-size: 20px;" href="/dashboard">Go to dashboard</a>
             </div>
         </div>

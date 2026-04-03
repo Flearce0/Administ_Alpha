@@ -12,4 +12,24 @@ db.exec(`
     )
 `)
 
+db.exec(`
+    CREATE TABLE IF NOT EXISTS reminders (
+    id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    des TEXT,
+    duetime TEXT,
+    remindid INTEGER UNIQUE
+    )
+`)
+
+db.exec(`
+    CREATE TABLE IF NOT EXISTS routine (
+    id INTEGER PRIMARY KEY,
+    block TEXT NOT NULL,
+    des TEXT,
+    timeblock TEXT,
+    routineid INTEGER UNIQUE
+    )
+`)
+
 module.exports = db
